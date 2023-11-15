@@ -21,6 +21,11 @@ public class MasterExceptionHandler extends ResponseEntityExceptionHandler {
     Logger logger = LoggerFactory.getLogger(MasterExceptionHandler.class);
 
     @org.springframework.web.bind.annotation.ExceptionHandler
+    public ResponseEntity<Object> general(GeneralException e, WebRequest request) {
+        return handleExceptionInternal(e, e.getErrorCode(), request);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
         return handleExceptionInternal(e, Code._UNAUTHORIZED, request);
     }
