@@ -31,6 +31,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
     public Member joinMember(MemberRequestDTO.JoinDto request) {
 
         Member newMember = MemberConverter.toMember(request);
+
         List<FoodCategory> foodCategoryList = request.getPreferCategory()
                 .stream()
                 .map(category -> {
