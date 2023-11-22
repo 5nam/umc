@@ -2,6 +2,7 @@ package umc.spring.converter;
 
 import umc.spring.domain.Member;
 import umc.spring.domain.enums.Gender;
+import umc.spring.repository.MemberRepository;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
