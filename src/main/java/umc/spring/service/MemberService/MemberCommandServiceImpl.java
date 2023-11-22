@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.coyote.ErrorState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import umc.spring.base.Code;
 import umc.spring.base.exception.handler.FoodCategoryHandler;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.FoodCategory;
@@ -33,7 +34,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
                 .stream()
                 .map(category -> {
                     return foodCategoryRepository.findById(category).orElseThrow(
-                            () -> new FoodCategoryHandler(ErrorState.FOOD_CATEGORY_NOT_FOUND)
+                            () -> new FoodCategoryHandler(Code.FOOD_CATEGORY_NOT_FOUND)
                     );
                 }).collect(Collectors.toList());
 
