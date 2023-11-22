@@ -1,5 +1,6 @@
 package umc.spring.web.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class MemberRestController {
     private final MemberCommandService memberCommandService;
 
     @PostMapping("/")
-    public ResponseDto<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Validated MemberRequestDTO.JoinDto request) {
+    public ResponseDto<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinDto request) {
         Member member = memberCommandService.joinMember(request);
         return ResponseDto.onSuccess(MemberConverter.toJoinResultDTO(member));
     }
