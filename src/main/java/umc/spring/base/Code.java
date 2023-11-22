@@ -28,6 +28,8 @@ public enum Code {
     MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
     NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임은 필수 입니다."),
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4003", "카테고리에 존재하지 않는 목록입니다."),
+    STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4004", "존재하지 않는 가게입니다."),
+
 
     // article error
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
