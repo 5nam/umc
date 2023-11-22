@@ -29,6 +29,7 @@ public enum Code {
     NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임은 필수 입니다."),
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4003", "카테고리에 존재하지 않는 목록입니다."),
     STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4004", "존재하지 않는 가게입니다."),
+    MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4005", "존재하지 않는 미션입니다."),
 
 
     // article error
