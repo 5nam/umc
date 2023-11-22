@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.spring.base.Code;
 import umc.spring.base.exception.handler.FoodCategoryHandler;
 import umc.spring.converter.MemberConverter;
+import umc.spring.converter.MemberPreferConverter;
 import umc.spring.domain.FoodCategory;
 import umc.spring.domain.Member;
 import umc.spring.domain.mapping.MemberPrefer;
@@ -38,7 +39,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
                     );
                 }).collect(Collectors.toList());
 
-        List<MemberPrefer> memberPreferList = MemberPreferConver.toMemberPreferList(foodCategoryList);
+        List<MemberPrefer> memberPreferList = MemberPreferConverter.toMemberPreferList(foodCategoryList);
 
         memberPreferList.forEach(
                 memberPrefer -> {
