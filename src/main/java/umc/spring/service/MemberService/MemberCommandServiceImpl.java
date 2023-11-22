@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.coyote.ErrorState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import umc.spring.base.exception.handler.FoodCategoryHandler;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.FoodCategory;
 import umc.spring.domain.Member;
