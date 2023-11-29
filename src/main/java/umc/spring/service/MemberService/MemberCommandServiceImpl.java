@@ -53,6 +53,6 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
     public boolean isFoodCategoryValid(List<Long> values) {
         return values.stream()
-                .allMatch(foodCategoryRepository::existsById);
+                .allMatch(value -> foodCategoryRepository.existsById(value));
     }
 }

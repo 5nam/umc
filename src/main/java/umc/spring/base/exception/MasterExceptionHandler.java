@@ -20,10 +20,6 @@ public class MasterExceptionHandler extends ResponseEntityExceptionHandler {
 
     Logger logger = LoggerFactory.getLogger(MasterExceptionHandler.class);
 
-    @org.springframework.web.bind.annotation.ExceptionHandler
-    public ResponseEntity<Object> general(GeneralException e, WebRequest request) {
-        return handleExceptionInternal(e, e.getErrorCode(), request);
-    }
 
     @org.springframework.web.bind.annotation.ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
@@ -31,24 +27,37 @@ public class MasterExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler
-    public ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body,
-                                                          HttpHeaders headers, HttpStatus status, WebRequest request) {
+    public ResponseEntity<Object> general(GeneralException e, WebRequest request) {
+        return handleExceptionInternal(e, e.getErrorCode(), request);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler
+    public ResponseEntity<Object> exception(Exception e, WebRequest request) {
+        e.printStackTrace();
+        return handleExceptionInternalFalse(e, Code._INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY, Code._INTERNAL_SERVER_ERROR.getHttpStatus(),request);
+    }
+
+
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body,
+                                                             HttpHeaders headers, HttpStatus status, WebRequest request) {
+
         logger.info("At exception handler");
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) request;
         HttpServletRequest servletRequest = requestAttributes.getRequest();
 
         String contentType = request.getHeader("Content-Type");
         logger.info("Content-Type : {}", contentType);
-        logger.error("발생한 에러의 로그 : ", ex);
-        return handleExceptionInternal(ex, Code.valueOf(status), headers
-                                        , status, request);
+        logger.error("발생한 에러의 로그 :", ex);
+        return handleExceptionInternal(ex, Code.valueOf(status), headers, status, request);
     }
+
 
     private ResponseEntity<Object> handleExceptionInternal(Exception e, Code errorCode,
                                                            WebRequest request) {
         return handleExceptionInternal(e, errorCode, HttpHeaders.EMPTY, errorCode.getHttpStatus(),
                 request);
     }
+
 
     private ResponseEntity<Object> handleExceptionInternal(Exception e, Code errorCode,
                                                            HttpHeaders headers, HttpStatus status, WebRequest request) {

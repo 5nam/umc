@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 
 public class StoreRequestDTO {
 
-    @Builder
     @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
     public static class ReviewDTO {
         String title;
         Float score;

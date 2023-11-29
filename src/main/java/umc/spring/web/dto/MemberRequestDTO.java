@@ -3,7 +3,10 @@ package umc.spring.web.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import umc.spring.validation.annotation.ExistCategories;
 
 import java.util.List;
@@ -13,25 +16,25 @@ public class MemberRequestDTO {
     @Getter
     public static class JoinDto {
 
-        @NotBlank
+//        @NotBlank
         String name;
 
-        @NotNull
+//        @NotNull
         Integer gender;
 
-        @NotNull
+//        @NotNull
         Integer birthYear;
 
-        @NotNull
+//        @NotNull
         Integer birthMonth;
 
-        @NotNull
+//        @NotNull
         Integer birthDay;
 
-        @Size(min = 5, max = 12)
+//        @Size(min = 5, max = 12)
         String address;
 
-        @Size(min = 5, max = 12)
+//        @Size(min = 5, max = 12)
         String specAddress;
 
         @ExistCategories

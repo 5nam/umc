@@ -11,6 +11,7 @@ import umc.spring.base.ResponseDto;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Member;
 import umc.spring.service.MemberService.MemberCommandService;
+import umc.spring.validation.annotation.ExistCategories;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
