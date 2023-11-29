@@ -8,5 +8,6 @@ public class ReviewEnrollRequestDTO {
         String title;
         Float score;
         Long memberId;
+        Long storeId;
     }
 }
