@@ -39,7 +39,7 @@ public class MemberReviewResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class CreateMemberReviewResultDTO {
-        Long memberId;
+        Long reviewId;
         LocalDateTime createdAt;
     }
 }
